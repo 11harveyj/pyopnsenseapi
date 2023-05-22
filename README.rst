@@ -40,16 +40,18 @@ to a client class. For example:
 
 .. code-block:: python
 
-    from pyopnsenseapi import opnsense
+    import pyopnsenseapi as opnsense
 
     api_key = 'XXXXXX'
     api_secret = 'XXXXXXXXXXXXXXX'
-    opnsense_url = 'http://192.168.1.1/api'
+    host = '192.168.1.1'
+    use_ssl = True
+    verify_cert = False
 
     client = opnsense.Client(
-        api_key, api_secret, opnsense_url)
+        api_key, api_secret, host, use_ssl, verify_cert)
 
-    print(client.interfaces.get())
+    print(opnsense.modules.diagnostics.Interface.get_arp(client))
 
 which will print a dictionary mapping physical devices to their interface label.
 
