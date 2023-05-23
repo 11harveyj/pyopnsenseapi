@@ -41,7 +41,11 @@ FUNCTIONS = {
     "NETFLOW_IS_ENABLED": "netflow.isEnabled",
     "NETFLOW_RECONFIGURE": "netflow.reconfigure",
     "NETFLOW_SET_CONFIG": "netflow.setconfig",
-    "NETFLOW_STATUS": "netflow.status"
+    "NETFLOW_STATUS": "netflow.status",
+    "NETWORKINSIGHT_GET_INTERFACES": "networkinsight.getInterfaces",
+    "NETWORKINSIGHT_GET_METADATA": "networkinsight.getMetadata",
+    "NETWORKINSIGHT_GET_PROTOCOLS": "networkinsight.getProtocols",
+    "NETWORKINSIGHT_GET_SERVICES": "networkinsight.getServices"
 }
 
 # Dynamic build endpoints
