@@ -1,15 +1,13 @@
-"""OPNsense diagnostics module."""
+"""OPNsense core module."""
 
 import pkgutil
 import sys
 import importlib
 import inspect
 import enum
-from pyopnsenseapi.modules import Modules
-from .const import DIAGNOSTICS
 
-class Diagnostics():
-    """Diagnostics module."""
+class Core():
+    """Core module."""
 
     is_module = True
 

@@ -1,6 +1,16 @@
 """OPNsense enums"""
 from enum import Enum
 
+class PackageManagerActions(Enum):
+    """Valid pack_man actions"""
+    INSTALL = "install"
+    UNINSTALL = "remove"
+    REINSTALL = "reinstall"
+    LOCK = "lock"
+    UNLOCK = "unlock"
+    DETAILS = "details"
+    LICENSE = "license"
+
 class TracerDetail(Enum):
     """Valid tracer detail types."""
     NORMAL = "normal"
