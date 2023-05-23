@@ -39,14 +39,14 @@ class Interface(object):
     def __init__(self, client) -> None:
         self._client = client
 
-    
+
     def set_carp_status(self, status: CarpStatus):
         """Set new carp node status."""
         return self._client.post(
             endpoint=str(ENDPOINTS.get(INTERFACE_CARP_STATUS)).format(str(status))
         )
 
-    
+   
     def del_route(self, destination: str, gateway: str):
         """Deletes a route."""
         return self._client.post(
@@ -57,7 +57,7 @@ class Interface(object):
             }
         )
 
-    
+   
     def flush_arp(self):
         """Flush system arp cache."""
         return self._client.post(
@@ -65,98 +65,98 @@ class Interface(object):
             body={}
         )
 
-    
+   
     def get_arp(self):
         """Get ARP table."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_ARP)
         )
 
-    
+   
     def get_bpf_statistics(self):
         """Get BPF statistics."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_BPF_STATS)
         )
 
-    
+
     def get_config(self):
         """Get interface config."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_CONFIG)
         )
 
-    
+
     def get_interface_names(self):
         """Get interface name(s)."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_NAMES)
         )
 
-    
+
     def get_statistics(self):
         """Get interface stats."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_STATS)
         )
 
-    
+
     def get_memory_statistics(self):
         """Get interface memory stats."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_MEM_STATS)
         )
 
-    
+
     def get_ndp(self):
         """Get NDP table."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_NDP)
         )
 
-    
+
     def get_netisr_statistics(self):
         """Get netisr statistics."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_NETISR_STATS)
         )
 
-    
+
     def get_pfsync_nodes(self):
         """Get PFSync nodes."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_PFSYNC_NODES)
         )
 
-    
+
     def get_protocol_statistics(self):
         """Get interface protocol stats."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_PROTO_STATS)
         )
 
-    
+
     def get_routes(self):
         """Get routes."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_ROUTES)
         )
 
-    
+
     def get_socket_statistics(self):
         """Get interface socket stats."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_SOCKET_STATS)
         )
 
-    
+
     def get_vip_status(self):
         """Get VIP status."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_VIP_STATUS)
         )
 
-    
+
     def search_arp_table(self,
                       row_count: int = 500,
                       current_page: int = 1,
@@ -174,7 +174,7 @@ class Interface(object):
                 "sort": sort
             })
 
-    
+
     def search_ndp_table(self,
                       row_count: int = 500,
                       current_page: int = 1,
