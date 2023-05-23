@@ -23,7 +23,7 @@ class Netflow(object):
 
     def get_config(self):
         """getConfig."""
-        return self._client.get(ENDPOINTS.get(NETFLOW_GET_CONFIG))
+        return self._client.get(ENDPOINTS.get(NETFLOW_GET_CONFIG))["netflow"]
 
     def is_enabled(self):
         """Return netflow enabled."""
