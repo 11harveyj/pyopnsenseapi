@@ -29,15 +29,19 @@ class Netflow(object):
         """Return netflow enabled."""
         return self._client.get(ENDPOINTS.get(NETFLOW_IS_ENABLED))
 
-    def reconfigure(self, **args):
+    def reconfigure(self):
         """Reconfigure netflow."""
         return self._client.post(
             endpoint=ENDPOINTS.get(NETFLOW_RECONFIGURE),
-            body=args)
+            body={})
 
-    def set_config(self):
+    def set_config(self, config):
         """Set netflow config."""
-        return self._client.get(ENDPOINTS.get(NETFLOW_SET_CONFIG))
+        return self._client.post(
+            endpoint=ENDPOINTS.get(NETFLOW_SET_CONFIG),
+            body={
+                "netflow": config
+            })
 
     def status(self):
         """Return netflow status."""
