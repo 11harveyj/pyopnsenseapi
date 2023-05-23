@@ -35,7 +35,13 @@ FUNCTIONS = {
     "INTERFACE_GET_SOCKET_STATS": "interface.getSocketStatistics",
     "INTERFACE_GET_VIP_STATUS": "interface.getVipStatus",
     "INTERFACE_SEARCH_ARP": "interface.searchArp",
-    "INTERFACE_SEARCH_NDP": "interface.searchNdp"
+    "INTERFACE_SEARCH_NDP": "interface.searchNdp",
+    "NETFLOW_CACHE_STATS": "netflow.cacheStats",
+    "NETFLOW_GET_CONFIG": "netflow.getconfig",
+    "NETFLOW_IS_ENABLED": "netflow.isEnabled",
+    "NETFLOW_RECONFIGURE": "netflow.reconfigure",
+    "NETFLOW_SET_CONFIG": "netflow.setconfig",
+    "NETFLOW_STATUS": "netflow.status"
 }
 
 # Dynamic build endpoints

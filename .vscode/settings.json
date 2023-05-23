@@ -1,13 +1,16 @@
 {
     "cSpell.words": [
         "creatorid",
+        "getconfig",
         "ispkg",
+        "netflow",
         "NETISR",
         "Nsense",
         "opnsense",
         "PFSYNC",
         "pyopnsenseapi",
         "ruleid",
+        "setconfig",
         "stateid"
     ],
     "[python]": {
