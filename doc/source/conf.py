@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Copyright 2018 Matthew Treinish
+# Copyright 2023 Jordan Harvey
 #
-# This file is part of pyopnsense
+# This file is part of pyopnsenseapi
 #
-# pyopnsense is free software: you can redistribute it and/or modify
+# pyopnsenseapi is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# pyopnsense is distributed in the hope that it will be useful,
+# pyopnsenseapi is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with pyopnsense. If not, see <http://www.gnu.org/licenses/>.
+# along with pyopnsenseapi. If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import sys
@@ -39,8 +39,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pyopnsense'
-copyright = u'2018, Matthew Treinish'
+project = u'pyopnsenseapi'
+copyright = u'2023, Jordan Harvey'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
@@ -70,12 +70,12 @@ latex_documents = [
     ('index',
      '%s.tex' % project,
      u'%s Documentation' % project,
-     u'Matthew Treinish', 'manual'),
+     u'Jordan Harvey', 'manual'),
 ]
 
-man_pages = [('pyopnsense', 'pyopnsense',
+man_pages = [('pyopnsenseapi', 'pyopnsenseapi',
               'A python library to interact with OPNsense',
-             ['Matthew Treinish'], 1)]
+             ['Jordan Harvey'], 1)]
 
 # Example configuration for intersphinx: refer to the Python standard library.
 # intersphinx_mapping = {'http://docs.python.org/': None}
