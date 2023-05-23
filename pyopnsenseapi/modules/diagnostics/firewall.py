@@ -17,67 +17,72 @@ FIREWALL_STATS = "firewall.stats"
 class Firewall(object):
     """OPNsense diagnostics.firewall module."""
 
-    @staticmethod
-    def delete_state(client, stateid: str, creatorid: str):
+    is_controller = True
+
+    def __init__(self, client) -> None:
+        self._client = client
+
+    
+    def delete_state(self, stateid: str, creatorid: str):
         """Deletes a given state."""
-        return client.post(
+        return self._client.post(
             endpoint=ENDPOINTS.get(FIREWALL_DEL_STATE),
             body={"stateid": stateid, "creatorid": creatorid}
         )
 
-    @staticmethod
-    def flush_sources(client):
+    
+    def flush_sources(self):
         """Flushes sources."""
-        return client.post(
+        return self._client.post(
             endpoint=ENDPOINTS.get(FIREWALL_FLUSH_SOURCES),
             body={}
         )
 
-    @staticmethod
-    def flush_states(client):
+    
+    def flush_states(self):
         """Flushes states."""
-        return client.post(
+        return self._client.post(
             endpoint=ENDPOINTS.get(FIREWALL_FLUSH_STATES),
             body={}
         )
 
-    @staticmethod
-    def kill_states(client):
+    
+    def kill_states(self):
         """Kills states."""
-        return client.post(
+        return self._client.post(
             endpoint=ENDPOINTS.get(FIREWALL_KILL_STATES),
             body={}
         )
 
-    @staticmethod
-    def get_rule_ids(client):
+    
+    def get_rule_ids(self):
         """Gets a list of rule IDs."""
-        return client.get(ENDPOINTS.get(FIREWALL_LIST_RULE_IDS))
+        return self._client.get(ENDPOINTS.get(FIREWALL_LIST_RULE_IDS))
 
-    @staticmethod
-    def get_firewall_log(client):
+    
+    def get_firewall_log(self):
         """Returns the firewall log."""
-        return client.get(ENDPOINTS.get(FIREWALL_LOG))
+        return self._client.get(ENDPOINTS.get(FIREWALL_LOG))
 
-    @staticmethod
-    def get_firewall_log_filters(client):
+    
+    def get_firewall_log_filters(self):
         """Returns firewall log filters?."""
-        return client.get(ENDPOINTS.get(FIREWALL_LOG_FILTERS))
+        return self._client.get(ENDPOINTS.get(FIREWALL_LOG_FILTERS))
 
-    @staticmethod
-    def get_pf_statistics(client, section: str="null"):
+    
+    def get_pf_statistics(self, section: str="null"):
         """Returns pfStatistics."""
-        return client.get(str(ENDPOINTS.get(FIREWALL_PF_STATS)).format(section))
+        return self._client.get(str(ENDPOINTS.get(FIREWALL_PF_STATS)).format(section))
 
-    @staticmethod
-    def search_pf_top(client,
+    
+    def search_pf_top(self,
                       row_count: int = 500,
                       current_page: int = 1,
                       rule_id: str = "",
                       sort: str = "",
                       search_phrase: str = ""):
         """Returns pfTop."""
-        return client.post(
+        return self._client.post(
             endpoint=ENDPOINTS.get(FIREWALL_Q_PF_TOP),
             body={
                 "searchPhrase": search_phrase,
@@ -87,15 +92,15 @@ class Firewall(object):
                 "sort": sort
             })
 
-    @staticmethod
-    def search_states(client,
+    
+    def search_states(self,
                       row_count: int = 500,
                       current_page: int = 1,
                       rule_id: str = "",
                       sort: str = "",
                       search_phrase: str = ""):
         """Returns pfTop."""
-        return client.post(
+        return self._client.post(
             endpoint=ENDPOINTS.get(FIREWALL_Q_STATES),
             body={
                 "searchPhrase": search_phrase,
@@ -105,7 +110,7 @@ class Firewall(object):
                 "sort": sort
             })
 
-    @staticmethod
-    def get_statistics(client):
+    
+    def get_statistics(self):
         """Returns statistics."""
-        return client.get(ENDPOINTS.get(FIREWALL_STATS))
+        return self._client.get(ENDPOINTS.get(FIREWALL_STATS))

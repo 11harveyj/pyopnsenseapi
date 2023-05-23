@@ -51,7 +51,7 @@ to a client class. For example:
     client = opnsense.Client(
         api_key, api_secret, host, use_ssl, verify_cert)
 
-    print(opnsense.modules.diagnostics.Interface.get_arp(client))
+    print(client.modules.diagnostics.interface.get_arp())
 
 which will print a dictionary mapping physical devices to their interface label.
 

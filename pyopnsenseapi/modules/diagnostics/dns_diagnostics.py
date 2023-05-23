@@ -8,12 +8,15 @@ DNS_DIAGNOSTICS_SET = "dns_diagnostics.set"
 class DnsDiagnostics(object):
     """OPNsense diagnostics.dns_diagnostics module."""
 
-    @staticmethod
-    def get(client):
-        """Unsure what this is currently."""
-        return client.get(ENDPOINTS.get(DNS_DIAGNOSTICS_GET))
+    is_controller = True
 
-    @staticmethod
-    def set(client):
+    def __init__(self, client) -> None:
+        self._client = client
+
+    def get(self):
         """Unsure what this is currently."""
-        return client.get(ENDPOINTS.get(DNS_DIAGNOSTICS_SET))
+        return self._client.get(ENDPOINTS.get(DNS_DIAGNOSTICS_GET))
+
+    def set(self):
+        """Unsure what this is currently."""
+        return self._client.get(ENDPOINTS.get(DNS_DIAGNOSTICS_SET))
