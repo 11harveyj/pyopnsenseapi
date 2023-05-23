@@ -16,3 +16,12 @@ class IpAddressTypes(Enum):
 
     def __str__(self) -> str:
         return self.value
+
+class CarpStatus(Enum):
+    """Valid CARP status values"""
+    ENABLE = "enable"
+    DISABLE = "disable"
+    MAINTENANCE = "maintenance"
+
+    def __str__(self) -> str:
+        return self.value

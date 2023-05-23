@@ -1,7 +1,7 @@
 """OPNsense diagnostics.interface module."""
 
-from enum import Enum
 from pyopnsenseapi.modules.diagnostics.const import (ENDPOINTS)
+from pyopnsenseapi.modules.enums import (CarpStatus)
 
 INTERFACE_CARP_STATUS = "interface.CarpStatus?$status=%s"
 INTERFACE_DEL_ROUTE = "interface.delRoute"
@@ -22,15 +22,6 @@ INTERFACE_GET_VIP_STATUS = "interface.getVipStatus"
 INTERFACE_SEARCH_ARP = "interface.searchArp"
 INTERFACE_SEARCH_NDP = "interface.searchNdp"
 
-class CarpStatus(Enum):
-    """Valid CARP status values"""
-    ENABLE = "enable"
-    DISABLE = "disable"
-    MAINTENANCE = "maintenance"
-
-    def __str__(self) -> str:
-        return self.value
-
 class Interface(object):
     """OPNsense diagnostics.interface module."""
 
@@ -39,14 +30,12 @@ class Interface(object):
     def __init__(self, client) -> None:
         self._client = client
 
-
     def set_carp_status(self, status: CarpStatus):
         """Set new carp node status."""
         return self._client.post(
             endpoint=str(ENDPOINTS.get(INTERFACE_CARP_STATUS)).format(str(status))
         )
 
-   
     def del_route(self, destination: str, gateway: str):
         """Deletes a route."""
         return self._client.post(
@@ -57,7 +46,6 @@ class Interface(object):
             }
         )
 
-   
     def flush_arp(self):
         """Flush system arp cache."""
         return self._client.post(
@@ -65,14 +53,14 @@ class Interface(object):
             body={}
         )
 
-   
+
     def get_arp(self):
         """Get ARP table."""
         return self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_ARP)
         )
 
-   
+
     def get_bpf_statistics(self):
         """Get BPF statistics."""
         return self._client.get(
