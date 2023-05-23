@@ -3,6 +3,8 @@
         "creatorid",
         "getconfig",
         "ispkg",
+        "jobid",
+        "MACINFO",
         "netflow",
         "NETISR",
         "networkinsight",
@@ -11,8 +13,11 @@
         "PFSYNC",
         "pyopnsenseapi",
         "ruleid",
+        "SEARCHJOBS",
         "setconfig",
-        "stateid"
+        "snaplen",
+        "stateid",
+        "systemhealth"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"

@@ -45,7 +45,21 @@ FUNCTIONS = {
     "NETWORKINSIGHT_GET_INTERFACES": "networkinsight.getInterfaces",
     "NETWORKINSIGHT_GET_METADATA": "networkinsight.getMetadata",
     "NETWORKINSIGHT_GET_PROTOCOLS": "networkinsight.getProtocols",
-    "NETWORKINSIGHT_GET_SERVICES": "networkinsight.getServices"
+    "NETWORKINSIGHT_GET_SERVICES": "networkinsight.getServices",
+    "PACKET_CAPTURE_DOWNLOAD": "packet_capture.download?$jobid=%s",
+    "PACKET_CAPTURE_GET": "packet_capture.get",
+    "PACKET_CAPTURE_MACINFO": "packet_capture.macInfo?$macAddr=%s",
+    "PACKET_CAPTURE_REMOVE": "packet_capture.remove?$jobid=%s",
+    "PACKET_CAPTURE_SEARCHJOBS": "packet_capture.searchJobs",
+    "PACKET_CAPTURE_SET": "packet_capture.set",
+    "PACKET_CAPTURE_START": "packet_capture.start?$jobid=%s",
+    "PACKET_CAPTURE_STOP": "packet_capture.stop?$jobid=%s",
+    "PACKET_CAPTURE_VIEW": "packet_capture.view?$jobid=%s&$detail=%s",
+    "SYSTEM_MEMORY": "system.memory",
+    "SYSTEM_HEALTH_GET_INTERFACES": "systemhealth.getInterfaces",
+    "SYSTEM_HEALTH_GET_RRD_LIST": "systemhealth.getRRDlist",
+    "TRAFFIC_INTERFACE_GET": "traffic.Interface",
+    "TRAFFIC_TOP_GET": "traffic.Top",
 }
 
 # Dynamic build endpoints
