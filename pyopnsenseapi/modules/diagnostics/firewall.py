@@ -22,7 +22,6 @@ class Firewall(object):
     def __init__(self, client) -> None:
         self._client = client
 
-    
     def delete_state(self, stateid: str, creatorid: str):
         """Deletes a given state."""
         return self._client.post(
@@ -30,7 +29,6 @@ class Firewall(object):
             body={"stateid": stateid, "creatorid": creatorid}
         )
 
-    
     def flush_sources(self):
         """Flushes sources."""
         return self._client.post(
@@ -38,7 +36,6 @@ class Firewall(object):
             body={}
         )
 
-    
     def flush_states(self):
         """Flushes states."""
         return self._client.post(
@@ -46,7 +43,6 @@ class Firewall(object):
             body={}
         )
 
-    
     def kill_states(self):
         """Kills states."""
         return self._client.post(
@@ -54,27 +50,22 @@ class Firewall(object):
             body={}
         )
 
-    
     def get_rule_ids(self):
         """Gets a list of rule IDs."""
         return self._client.get(ENDPOINTS.get(FIREWALL_LIST_RULE_IDS))
 
-    
     def get_firewall_log(self):
         """Returns the firewall log."""
         return self._client.get(ENDPOINTS.get(FIREWALL_LOG))
 
-    
     def get_firewall_log_filters(self):
         """Returns firewall log filters?."""
         return self._client.get(ENDPOINTS.get(FIREWALL_LOG_FILTERS))
 
-    
     def get_pf_statistics(self, section: str="null"):
         """Returns pfStatistics."""
         return self._client.get(str(ENDPOINTS.get(FIREWALL_PF_STATS)).format(section))
 
-    
     def search_pf_top(self,
                       row_count: int = 500,
                       current_page: int = 1,
@@ -92,7 +83,6 @@ class Firewall(object):
                 "sort": sort
             })
 
-    
     def search_states(self,
                       row_count: int = 500,
                       current_page: int = 1,
@@ -110,7 +100,6 @@ class Firewall(object):
                 "sort": sort
             })
 
-    
     def get_statistics(self):
         """Returns statistics."""
         return self._client.get(ENDPOINTS.get(FIREWALL_STATS))

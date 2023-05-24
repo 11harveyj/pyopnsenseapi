@@ -22,7 +22,11 @@ FUNCTIONS = {
     "FIRMWARE_LOCK": "firmware.lock?$pkg_name=%s",
     "FIRMWARE_UNLOCK": "firmware.unlock?$pkg_name=%s",
     "FIRMWARE_DETAILS": "firmware.details?$pkg_name=%s",
-    "FIRMWARE_LICENSE": "firmware.license?$pkg_name=%s"
+    "FIRMWARE_LICENSE": "firmware.license?$pkg_name=%s",
+    "SERVICE_RESTART": "service.restart?$name=%s&$id=%s",
+    "SERVICE_SEARCH": "service.search",
+    "SERVICE_START": "service.start?$name=%s&$id=%s",
+    "SERVICE_STOP": "service.stop?$name=%s&$id=%s"
 }
 
 # Dynamic build endpoints
