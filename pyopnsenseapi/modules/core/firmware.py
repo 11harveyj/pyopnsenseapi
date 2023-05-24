@@ -16,13 +16,13 @@ FIRMWARE_UPDATE = "firmware.update"
 FIRMWARE_UPGRADE = "firmware.upgrade"
 FIRMWARE_UPGRADE_STATUS = "firmware.upgradestatus"
 FIRMWARE_CHANGELOG = "firmware.changelog?$version=%s"
-FIRMWARE_INSTALL = "firmware.install"
-FIRMWARE_REINSTALL = "firmware.reinstall"
-FIRMWARE_REMOVE = "firmware.remove"
-FIRMWARE_LOCK = "firmware.lock"
-FIRMWARE_UNLOCK = "firmware.unlock"
-FIRMWARE_DETAILS = "firmware.details"
-FIRMWARE_LICENSE = "firmware.license"
+FIRMWARE_INSTALL = "firmware.install?$pkg_name=%s"
+FIRMWARE_REINSTALL = "firmware.reinstall?$pkg_name=%s"
+FIRMWARE_REMOVE = "firmware.remove?$pkg_name=%s"
+FIRMWARE_LOCK = "firmware.lock?$pkg_name=%s"
+FIRMWARE_UNLOCK = "firmware.unlock?$pkg_name=%s"
+FIRMWARE_DETAILS = "firmware.details?$pkg_name=%s"
+FIRMWARE_LICENSE = "firmware.license?$pkg_name=%s"
 
 
 class Firmware(object):
@@ -129,4 +129,31 @@ class Firmware(object):
                  pkg_name: str,
                  action: PackageManagerActions = PackageManagerActions.DETAILS):
         """OPNsense package manager."""
-        return True
+
+        endpoint = ""
+
+        if action == PackageManagerActions.DETAILS:
+            endpoint = ENDPOINTS.get(FIRMWARE_DETAILS)
+
+        elif action == PackageManagerActions.INSTALL:
+            endpoint = ENDPOINTS.get(FIRMWARE_INSTALL)
+
+        elif action == PackageManagerActions.LICENSE:
+            endpoint = ENDPOINTS.get(FIRMWARE_LICENSE)
+
+        elif action == PackageManagerActions.LOCK:
+            endpoint = ENDPOINTS.get(FIRMWARE_LOCK)
+
+        elif action == PackageManagerActions.UNLOCK:
+            endpoint = ENDPOINTS.get(FIRMWARE_UNLOCK)
+
+        elif action == PackageManagerActions.REINSTALL:
+            endpoint = ENDPOINTS.get(FIRMWARE_REINSTALL)
+
+        elif action == PackageManagerActions.UNINSTALL:
+            endpoint = ENDPOINTS.get(FIRMWARE_REMOVE)
+
+        return self._client.post(
+            endpoint=str(endpoint).format(pkg_name),
+            body={}
+        )

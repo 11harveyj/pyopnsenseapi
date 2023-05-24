@@ -16,13 +16,13 @@ FUNCTIONS = {
     "FIRMWARE_UPGRADE": "firmware.upgrade",
     "FIRMWARE_UPGRADE_STATUS": "firmware.upgradestatus",
     "FIRMWARE_CHANGELOG": "firmware.changelog?$version=%s",
-    "FIRMWARE_INSTALL": "firmware.install",
-    "FIRMWARE_REINSTALL": "firmware.reinstall",
-    "FIRMWARE_REMOVE": "firmware.remove",
-    "FIRMWARE_LOCK": "firmware.lock",
-    "FIRMWARE_UNLOCK": "firmware.unlock",
-    "FIRMWARE_DETAILS": "firmware.details",
-    "FIRMWARE_LICENSE": "firmware.license"
+    "FIRMWARE_INSTALL": "firmware.install?$pkg_name=%s",
+    "FIRMWARE_REINSTALL": "firmware.reinstall?$pkg_name=%s",
+    "FIRMWARE_REMOVE": "firmware.remove?$pkg_name=%s",
+    "FIRMWARE_LOCK": "firmware.lock?$pkg_name=%s",
+    "FIRMWARE_UNLOCK": "firmware.unlock?$pkg_name=%s",
+    "FIRMWARE_DETAILS": "firmware.details?$pkg_name=%s",
+    "FIRMWARE_LICENSE": "firmware.license?$pkg_name=%s"
 }
 
 # Dynamic build endpoints
