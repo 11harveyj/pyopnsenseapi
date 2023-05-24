@@ -2,6 +2,7 @@
 
 from pyopnsenseapi.modules.diagnostics.const import (ENDPOINTS)
 from pyopnsenseapi.modules.enums import (CarpStatus)
+from pyopnsenseapi.modules.common import (dict_get)
 
 INTERFACE_CARP_STATUS = "interface.CarpStatus?$status=%s"
 INTERFACE_DEL_ROUTE = "interface.delRoute"
@@ -84,9 +85,33 @@ class Interface(object):
 
     def get_statistics(self):
         """Get interface stats."""
-        return self._client.get(
+        data = self._client.get(
             endpoint=ENDPOINTS.get(INTERFACE_GET_STATS)
-        )
+        )["statistics"]
+
+        network_stats = {}
+
+        for iface in data.items():
+            if iface[1]["name"] not in network_stats:
+                network_stats[iface[1]["name"]] = {
+                    "received-packets": iface[1]["received-packets"],
+                    "received-errors": iface[1]["received-errors"],
+                    "dropped-packets": iface[1]["dropped-packets"],
+                    "received-bytes": iface[1]["received-bytes"],
+                    "sent-packets": iface[1]["sent-packets"],
+                    "send-errors": iface[1]["send-errors"],
+                    "sent-bytes": iface[1]["sent-bytes"],
+                    "collisions": iface[1]["collisions"]
+                }
+            else:
+                c_stats = network_stats.get(iface[1]["name"])
+
+                for k in c_stats:
+                    c_stats[k] += dict_get(iface[1], k, 0)
+
+                network_stats[iface[1]["name"]] = c_stats
+
+        return network_stats
 
 
     def get_memory_statistics(self):
