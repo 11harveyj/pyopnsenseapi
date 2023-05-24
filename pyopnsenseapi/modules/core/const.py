@@ -26,7 +26,11 @@ FUNCTIONS = {
     "SERVICE_RESTART": "service.restart?$name=%s&$id=%s",
     "SERVICE_SEARCH": "service.search",
     "SERVICE_START": "service.start?$name=%s&$id=%s",
-    "SERVICE_STOP": "service.stop?$name=%s&$id=%s"
+    "SERVICE_STOP": "service.stop?$name=%s&$id=%s",
+    "SYSTEM_DISMISS_STATUS": "system.dismissStatus",
+    "SYSTEM_HALT": "system.halt",
+    "SYSTEM_REBOOT": "system.reboot",
+    "SYSTEM_STATUS": "system.status"
 }
 
 # Dynamic build endpoints
